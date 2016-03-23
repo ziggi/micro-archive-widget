@@ -1,10 +1,18 @@
-jQuery(function ($) {
+(function() {
+	var clickElements = document.querySelectorAll('li.archive-micro-year');
+	var blockElements = document.querySelectorAll('li.archive-micro-year ul');
 
-	$('li.archive-accordion-year').click(function() {
-			// Change CSS of current year
-			$('li.archive-accordion-year').not(this).children('ul').slideUp(250);
-			$(this).children('ul').slideToggle(250);
-		
+	clickElements.forEach(function(clickElement) {
+		clickElement.querySelector('a').addEventListener('click', function() {
+			var currentBlock = clickElement.querySelector('ul');
+
+			blockElements.forEach(function(blockElement) {
+				if (blockElement === currentBlock && blockElement.style.display !== 'block') {
+					blockElement.style.display = 'block';
+				} else {
+					blockElement.style.display = 'none';
+				}
+			});
+		});
 	});
-
-});
+})();
