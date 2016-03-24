@@ -33,6 +33,7 @@ I've put this widget at the sidebar of my website. You can check it out at http:
 # Screenshot
 
 1. This is an image of the accordion expanded revealing the months.
+
 ![Screenshot](screenshot-1.png "screenshot-1")
 
 # Changelog
