@@ -3,7 +3,7 @@
 * Donate link: http://donate.ziggi.org/
 * Tags: archive, widget
 * Requires at least: 3.0.1
-* Tested up to: 4.4.2
+* Tested up to: 4.5
 * Stable tag: 1.0
 * License: CC0 1.0
 * License URI: https://creativecommons.org/publicdomain/zero/1.0/
