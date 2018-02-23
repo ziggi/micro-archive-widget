@@ -3,9 +3,9 @@
  * Plugin Name: Micro Archive Widget
  * Plugin URI: https://github.com/ziggi/micro-archive-widget
  * Description: An archive widget that collapses the standard archive widget into an micro by year
- * Version: 1.0
+ * Version: 1.1
  * Author: Sergei Marochkin
- * Author URI: http://ziggi.org
+ * Author URI: https://ziggi.org
  * Based on: Accordion Archive Widget by Pat Hartl (http://pathartl.me)
  * License: CC0 1.0
  */
@@ -29,15 +29,15 @@ add_action('wp_enqueue_scripts', 'micro_archives_styles');
 class WP_Widget_Micro_Archives extends WP_Widget {
 
 	function __construct() {
-		$widget_ops = array('classname' => 'widget_micro_archive', 'description' => __( 'A yearly archive of your site&#8217;s Posts in an micro.') );
-		parent::__construct('micro_archives', __('Micro Archives'), $widget_ops);
+		$widget_ops = array('classname' => 'widget_micro_archive', 'description' => __('A yearly archive of your site&#8217;s Posts in an micro.', 'micro-archive-widget') );
+		parent::__construct('micro_archives', __('Micro Archives', 'micro-archive-widget'), $widget_ops);
 	}
 
 	function widget( $args, $instance ) {
 		extract($args);
 
 		/** This filter is documented in wp-includes/default-widgets.php */
-		$title = apply_filters( 'widget_title', empty($instance['title'] ) ? __( 'Micro Archives' ) : $instance['title'], $instance, $this->id_base );
+		$title = apply_filters( 'widget_title', empty($instance['title'] ) ? __('Micro Archives', 'micro-archive-widget') : $instance['title'], $instance, $this->id_base );
 
 		echo $args['before_widget'];
 		if ($title) {
@@ -100,7 +100,7 @@ class WP_Widget_Micro_Archives extends WP_Widget {
 		
 		echo '
 			<p>
-				<label for="' . $field_id . '">' . __('Title:') . '</label>
+				<label for="' . $field_id . '">' . __('Title:', 'micro-archive-widget') . '</label>
 				<input class="widefat" id="' . $field_id . '" name="' . $field_name . '" type="text" value="' . $value . '" />
 			</p>';
 	}
