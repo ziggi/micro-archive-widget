@@ -1,10 +1,10 @@
 === Micro Archive Widget ===
 Contributors: marochk1n
-Donate link: http://donate.ziggi.org/
+Donate link: https://donate.ziggi.org/
 Tags: archive, widget
 Requires at least: 3.0.1
-Tested up to: 4.7
-Stable tag: 1.0
+Tested up to: 4.9
+Stable tag: 1.1
 License: CC0 1.0
 License URI: https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -26,11 +26,11 @@ Development can be tracked at http://github.com/ziggi/micro-archive-widget
 
 = Is this widget show post count? =
 
-No, because it used stock archive widget.
+Yes.
 
 = Where can I see this in action? =
 
-I've put this widget at the sidebar of my website. You can check it out at http://ziggi.org/
+I've put this widget at the sidebar of my website. You can check it out at https://ziggi.org/
 
 == Screenshots ==
 
@@ -38,10 +38,18 @@ I've put this widget at the sidebar of my website. You can check it out at http:
 
 == Changelog ==
 
+= 1.1 =
+* Added post count next to each year and month.
+
+== Changelog ==
+
 = 1.0 =
 * Initial Release.
 
 == Upgrade Notice ==
+
+= 1.1 =
+No upgrade notices.
 
 = 1.0 =
 No upgrade notices.

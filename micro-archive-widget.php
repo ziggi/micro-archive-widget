@@ -44,29 +44,37 @@ class WP_Widget_Micro_Archives extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
-		$archives = wp_get_archives(array('echo' => 0));
+		$archives_params = array(
+			'echo' => 0,
+			'show_post_count' => 1
+		);
+		$archives = str_replace('&nbsp;', ' ', wp_get_archives($archives_params));
 
-		preg_match_all('#<a href=\'(.+)\'>(.+) (\d+)<\/a>#', $archives, $matches);
+		preg_match_all('#<a href=\'(.+)\'>(.+) (\d+)<\/a> \((\d+)\)#', $archives, $matches);
 		
 		$elements = array();
 		
 		foreach ($matches[0] as $i => $match) {
-			list($url, $month, $year) = array($matches[1][$i], $matches[2][$i], $matches[3][$i]);
-			$elements[$year][$month][] = $url;
+			list($url, $month, $year, $postcount) = array($matches[1][$i], $matches[2][$i], $matches[3][$i], $matches[4][$i]);
+			$elements[$year][$month][] = array('url' => $url, 'postcount' => $postcount);
 		}
 
 		echo '<ul>';
 
 		foreach ($elements as $year => $months) {
-			echo '<li class="archive-micro-year"><a>' . $year . '</a>';
-			echo '<ul>';
+			$year_post_count = 0;
+			$year_html_output = '';
 
-			foreach ($months as $month => $urls) {
-				foreach ($urls as $url) {
-					echo '<li class="archive-micro-month"><a href="' . $url . '">' . $month . '</a></li>';
+			foreach ($months as $month => $elemtparams) {
+				foreach ($elemtparams as $elemtparam) {
+					$year_post_count += $elemtparam['postcount'];
+					$year_html_output .= '<li class="archive-micro-month"><a href="' . $elemtparam['url'] . '">' . $month . '</a> (' . $elemtparam['postcount'] . ')</li>';
 				}
 			}
 
+			echo '<li class="archive-micro-year"><a>' . $year . '</a> (' . $year_post_count . ')';
+			echo '<ul>';
+			echo $year_html_output;
 			echo '</ul></li>';
 		}
 
