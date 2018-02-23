@@ -14,7 +14,7 @@ An archive widget that reconstructs the stock widget into an accordion by year w
 
 Micro Archive Widget recreates the stock archive widget, but this time around the widget is laid out as an accordion. It gives you the years of the archive, and then when the year is clicked it expands to show the months. Widget is very small and simple, and he works without jQuery.
 
-Development can be tracked at http://github.com/ziggi/micro-archive-widget
+Development can be tracked at https://github.com/ziggi/micro-archive-widget
 
 == Installation ==
 
@@ -40,8 +40,6 @@ I've put this widget at the sidebar of my website. You can check it out at https
 
 = 1.1 =
 * Added post count next to each year and month.
-
-== Changelog ==
 
 = 1.0 =
 * Initial Release.
